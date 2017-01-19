@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Scraper</title>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'jquery-1.12.3.min', 'data-turbolinks-track' => true %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
+ 
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+  </head>
+
+  <body>
+      <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <h3 style="margin-top:8px;">Web Scraper <small>A GBB Creations Project</small></h2>
+                </div>
+                <div class="pull-right">
+                    <% if logged_in? %>
+                        <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>"/>
+                    <div class="dropdown" style="margin-top:12px;">
+                        <button id="dropdownMenu1" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <%= current_user.first_name %>
+                            <span class="caret"></span>
+                        </button>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation">
+								<%= link_to "Scraper", scrape_path, "role" => "menuitem", "tabindex" => "-1" %>
+				            </li>
+                            <li role="presentation">
+                            <%= link_to "Logout", logout_path(current_user), :method => :delete, "role" => "menuitem", "tabindex" => "-1" %>
+                            </li>
+                        </ul>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+      </nav>
+      <div class="clear-fix">&nbsp;</div>
+      <div class="container">
+            <%= yield %>
+      </div>
+  </body>
+</html>

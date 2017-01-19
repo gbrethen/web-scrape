@@ -1,0 +1,47 @@
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
+<h1>Scraper</h1>
+<br/><br/>
+<div class="panel">
+	<div class="panel-body">
+        <%= form_tag({:controller=>'scraper', :action=>'scrape'}, {:class => 'col-md-5'}) do %>
+				<div class="form-group">
+					<label for="url">Choose a site</label>
+					<select class="form-control" id="url" name="url">
+                      <option>https://newyork.craigslist.org/search/pet?s=0</option>
+                     </select>
+                    <br/>
+					<input type="submit" class="btn btn-default">&nbsp;
+                    <%= link_to 'Clear', clear_path, class: 'btn btn-primary' %>
+				</div>
+        <% end %>
+    </div>
+</div>
+<% if @scraper.present? then %>
+    <div class="panel panel-default">
+        <div class="panel-heading"><%= @url %></div>
+        <div class="panel-body">
+            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @scraper.each do |pet| %>
+                        <tr>
+                            <td>
+                                <%= pet %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<% end %>
+
+
