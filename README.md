@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application was built using Ruby on Rails and simply demonstartes scraping a web site.
 
-Things you may want to cover:
+Versions and Dependencies:
 
-* Ruby version
+* Ruby 2.3.0
 
-* System dependencies
+* Rails framework
 
-* Configuration
+* Nokogiri 1.7.0
 
-* Database creation
+* HTTParty
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* JSON
