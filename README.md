@@ -1,6 +1,6 @@
 # README
 
-This application was built using Ruby on Rails and simply demonstartes scraping a web site.
+This application was built using Ruby on Rails and simply demonstrates scraping a web site.
 
 Versions and Dependencies:
 
